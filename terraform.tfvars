@@ -1,0 +1,26 @@
+region                              = "us-east-1"
+app                                 = "neo"
+env                                 = "dev"
+author                              = "Zeb"
+alb_sg_name                         = "neo-eus1-dev-alb-sg"
+ecs_sg_name                         = "neo-eus1-dev-ecs-sg"
+rds_sg_name                         = "neo-eus1-dev-rds-sg"
+alb_name                            = "neo-eus1-dev-alb"
+dev_be_alb_tg_name                  = "neo-eus1-dev-alb-tg"
+ecs_cluster_name                    = "neo-eus1-dev-ecs-cluster"
+dev_be_ecr_name                     = "neo-eus1-dev-be-ecr"
+ecs_task_execution_role_name        = "neo-eus1-dev-taskexecutionrole"
+dev_be_ecs_task_family              = "neo-eus1-dev-be-ecs-task-family"
+container_name                      = "neo-eus1-dev-be-container"
+container_port                      = 8080
+ecs_service_name_dev_be             = "neo-eus1-dev-be-ecs-service"
+bucket_name_dev                     = "neo-eus1-dev-frontend-bucket"
+rds_subnet_group_name               = "neo-eus1-dev-rds-subgrp"
+rds_identifier                      = "neo-eus1-dev-rds-postgresqldb"
+rds_engine                          = "postgres"
+rds_engine_version                  = "17.5"
+rds_instance_class                  = "db.t4g.micro"
+rds_allocated_storage               = 10
+rds_backup_retention_period         = 7
+dev_secret_name                     = "neo-eus1-dev-credentials"
+

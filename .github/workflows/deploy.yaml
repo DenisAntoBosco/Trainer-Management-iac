@@ -1,0 +1,37 @@
+name: Auth Pipeline
+permissions: write-all
+
+on:
+  push:
+    branches:
+      - "dev"
+
+jobs:
+  auth:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE }}
+          role-session-name: aws-auth
+          aws-region: us-east-1
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: latest
+
+      - name: Initialize
+        run: terraform init
+
+      - name: Plan
+        run: terraform plan
+
+      - name: terraform apply
+        run: terraform apply -auto-approve
