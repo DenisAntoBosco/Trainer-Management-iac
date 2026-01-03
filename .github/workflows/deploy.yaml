@@ -1,5 +1,7 @@
 name: Auth Pipeline
-permissions: write-all
+permissions:
+  id-token: write
+  contents: read
 
 on:
   push:
@@ -21,6 +23,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_OIDC_ROLE }}
           role-session-name: aws-auth
           aws-region: us-east-1
+          web-identity-token-file: ${{ env.AWS_WEB_IDENTITY_TOKEN_FILE }}
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v2
