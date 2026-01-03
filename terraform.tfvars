@@ -21,6 +21,6 @@ rds_engine                          = "postgres"
 rds_engine_version                  = "17.5"
 rds_instance_class                  = "db.t4g.micro"
 rds_allocated_storage               = 10
-rds_backup_retention_period         = 7
+rds_backup_retention_period         = 0
 dev_secret_name                     = "neo-eus1-dev-credentials"
 
