@@ -190,6 +190,10 @@ resource "aws_ecs_cluster" "ecs_cluster" {
   }
 }
 
+resource "aws_iam_service_linked_role" "ecs" {
+  aws_service_name = "ecs.amazonaws.com"
+}
+
 # task execution role for ecs task definition
 resource "aws_iam_role" "ecs_task_execution_role" {
   name = var.ecs_task_execution_role_name
