@@ -150,7 +150,7 @@ variable "rds_allocated_storage" {
 
 variable "rds_backup_retention_period" {
   type    = number
-  default = 7
+  default = 0
 }
 
 # ========================
